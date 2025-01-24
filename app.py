@@ -46,7 +46,8 @@ features = [
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the Green Score API"}
+    logging.info("Root endpoint accessed")
+    return {"message": "Welcome to the API"}
 
 @app.get("/favicon.ico")
 def favicon():
@@ -87,12 +88,8 @@ def calculate_green_score(industry: str):
 
         # Include necessary fields for the chart
         response = {
-            "green_score": green_score,
-            "emission": input_data["co2_emissions"].iloc[0],
-            "energy_consumption": input_data["energy_consumption_kwh"].iloc[0],
-            "waste": input_data["waste_tonnes"].iloc[0],
-            "community_impact": input_data["safety_score"].iloc[0], 
-            "spend": input_data["operational_spend"].iloc[0],
+            "green_score": green_score * 10,
+           
         }
 
         logging.info(f"Response generated: {response}")
