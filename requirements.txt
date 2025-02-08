@@ -11,3 +11,5 @@ openpyxl
 gunicorn
 gunicorn==20.1.0
 fastapi-cache
+Flask
+Flask_SQLAlchemy
